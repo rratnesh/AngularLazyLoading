@@ -16,12 +16,13 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      email: [''],
+      username: [''],
       password: [''],
     })
   }
 
   submit() {
+    this.authService.login(this.form.value);
     this.router.navigate(['/pages']);
   }
 

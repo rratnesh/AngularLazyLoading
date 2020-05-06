@@ -4,7 +4,6 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AuthenticationService } from '../services/authentication.service';
 
 
 const Routes: Routes = [
