@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 
   submit() {
     this.authService.login(this.form.value);
-    this.router.navigate(['/pages']);
+
   }
 
 }

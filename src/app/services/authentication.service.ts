@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private router: Router) { }
 
   private subject = new Subject<any>();
 
@@ -21,7 +22,8 @@ export class AuthenticationService {
 
   login(credentials) {
     this.httpClient.post('http://localhost:8000/auth/', credentials).subscribe((res) => {
-      localStorage.setItem('Authorization', res['token'])
+      localStorage.setItem('Authorization', res['token']);
+      this.router.navigate(['/pages']);
     })
   }
 
@@ -31,5 +33,13 @@ export class AuthenticationService {
       debugger
       console.log(res);
     })
+  }
+
+  logout(){
+    localStorage.clear();
+  }
+
+  isLoggedIn() {
+    return localStorage.getItem('Authorization') ? true : false;
   }
 }
