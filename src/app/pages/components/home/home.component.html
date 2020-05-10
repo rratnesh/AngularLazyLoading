@@ -3,7 +3,7 @@
 <a [routerLink]="['/pages/checkout']">checkout</a>
 
 <div *ngFor="let movie of moviesArr">
-    <input type="text" #title [value]="movie.title">
-    <input type="text" #description [value]="movie.description">
+    <input type="text" #title [value]="movie.title" (input)="markChanged(movie.id)">
+    <input type="text" #description [value]="movie.description" (input)="markChanged(movie.id)">
     <button (click)="updateMovie(movie.id, { title: title.value, description: description.value})">Update</button>
 </div>
