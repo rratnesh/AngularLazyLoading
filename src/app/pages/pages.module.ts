@@ -8,7 +8,6 @@ import { Content2Component } from './components/home/components/content2/content
 import { FormsModule } from '@angular/forms';
 import { MoviesResolve } from '../guards/movies.resolve';
 import { MoviesGuard } from '../guards/movies.guard';
-import { PromoComponent } from './components/checkout/promo/promo.component';
 
 
 const Routes: Routes = [
@@ -24,7 +23,7 @@ const Routes: Routes = [
 ]
 
 @NgModule({
-  declarations: [HomeComponent, CheckoutComponent, Content1Component, Content2Component, PromoComponent],
+  declarations: [HomeComponent, CheckoutComponent, Content1Component, Content2Component],
   imports: [
     CommonModule,
     RouterModule.forChild(Routes),
