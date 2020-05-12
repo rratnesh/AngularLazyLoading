@@ -7,11 +7,13 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HeaderComponent } from './shared/header/header.component';
 import { TokenInterceptor } from './interceptors/http.interceptor';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { CreditCardDirective } from './directives/credit-card.directive';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    CreditCardDirective
   ],
   imports: [
     BrowserModule,

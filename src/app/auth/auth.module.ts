@@ -4,6 +4,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PagesGuard } from '../guards/pages.guard';
+import { ChildComponent } from './login/child/child.component';
 
 
 const Routes: Routes = [
@@ -11,7 +13,10 @@ const Routes: Routes = [
     path: '', redirectTo: 'login'
   },
   {
-    path: 'login', component: LoginComponent
+    path: 'login', component: LoginComponent, canActivateChild: [PagesGuard],
+    children: [
+      { path: 'child', component: ChildComponent }
+    ]
   },
   {
     path: 'register', component: RegisterComponent
@@ -19,7 +24,7 @@ const Routes: Routes = [
 ]
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent],
+  declarations: [LoginComponent, RegisterComponent, ChildComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(Routes),
