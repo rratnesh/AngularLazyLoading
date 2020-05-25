@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Store } from './store';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'routing';
+  show = false;
+
+  constructor(private store: Store) {
+  }
+
+  ngOnInit() {
+    // this.store.set('user', { name: 'Ratnesh' });
+    this.store.set('profile', { address: 'India' });
+  }
 }
